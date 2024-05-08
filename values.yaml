@@ -1,0 +1,29 @@
+postgresql:
+  enabled: true
+proxy:
+  enabled: false
+  type: ClusterIP
+  ingress:
+    enabled: true
+    ingressClassName: kong
+    annotations:
+      konghq.com/preserve-host: "false"
+admin:
+  enabled: true
+  type: ClusterIP
+  http:
+    enabled: true
+  tls:
+    enabled: false  
+  ingress:
+    enabled: true
+    hostname: <URL>
+    tls: <secret>
+manager:
+  type: ClusterIP
+  tls:
+    enabled: false
+  ingress:
+    enabled: true
+    hostname: <URL>
+    tls: <secret>
